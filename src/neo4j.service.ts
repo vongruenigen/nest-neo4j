@@ -59,7 +59,7 @@ export class Neo4jService implements OnApplicationShutdown {
     params?: Record<string, any>,
     databaseOrTransaction?: string | Transaction,
   ): Promise<QueryResult> {
-    if (typeof databaseOrTransaction === "object") {
+    if (databaseOrTransaction && typeof databaseOrTransaction === "object") {
       return databaseOrTransaction.run(cypher, params);
     }
 
@@ -76,7 +76,7 @@ export class Neo4jService implements OnApplicationShutdown {
     params?: Record<string, any>,
     databaseOrTransaction?: string | Transaction,
   ): Promise<QueryResult> {
-    if (typeof databaseOrTransaction === "object") {
+    if (databaseOrTransaction && typeof databaseOrTransaction === "object") {
       return databaseOrTransaction.run(cypher, params);
     }
 
